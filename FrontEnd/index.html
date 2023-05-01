@@ -17,9 +17,8 @@
 
 	<!-- Mon JS avec defer pour charger en dernier (type="module" fait la même chose) -->
 	<!-- type="module" defer -->
-	<script src="/FrontEnd/js/home.js" type="module" defer ></script>
+	<script src="./js/home.js" type="module" defer ></script>
 	
-
 </head>
 
 <body>
@@ -100,7 +99,7 @@
 	<!-- Modal content -->
 	<div class="modal-wrapper js-myModal-stop">
 
-
+		<!-- VISUALISATION PHOTOS -->
 		<div class="js-gallery">
 			<ul class="modal__nav">
 				<li class="nav__item"><a href="#" ></a></li>
@@ -118,7 +117,7 @@
 			</div>	
 		</div>
 
-		
+		<!-- FORM ADD PICTURE -->
 		<div class="js-picture" style="display:none;">
 			<ul class="modal__nav">
 				<li class="nav__item"><a href="#" class="js-myModal-before"><i class="fa-solid fa-arrow-left"></i></a></li>
@@ -126,30 +125,30 @@
 			</ul>
 			<h3 class="modal__tittle">Ajout photo</h3>
 
-			<form action="" class="addPicture">
+			<form class="addPicture" id="pictureForm">
 
 				<div class="contener-photo">
 
-					<label for="choosePicture" class="contener__label" >
+					<label for="pictureChoose" class="contener__label" >
 						<img src="./assets/icons/image.png" alt="image choisie" class="addPicture__logo" id="pictureView" >
 						<span class="addPicture__btn">+ Ajouter photo</span>
-						<input id="choosePicture" name="choosePicture" type="file" style="display: none;">
+						<input class="js-control" id="pictureChoose" name="image" type="file" style="display: none;">
 						<p>jpg, png: 4 Mo Max</p>
 					</label>
 
 				</div>
 
-				<label for="titre">Titre</label>
-				<input type="text" name="titre" id="titre">
+				<label for="pictureTitre">Titre</label>
+				<input type="text" name="title" id="pictureTitre" class="js-control" value="">
 
-				<label for="cat">Catégorie</label>
-				<select id="cat" name="cat">
+				<label for="pictureCat">Catégorie</label>
+				<select id="pictureCat" name="category" class="js-control">
 					<!-- En JS -->
-					<option value="0">Merci de choisir</option>
+					<option value="0">Faite votre choix.</option>
 				  </select>	
 
 				<div class="modal__buttons">
-					  <input type="submit" class="modal__btn" value="Valider" id="addPicture">
+					  <input type="submit" name="pictureSubmit" class="modal__btn modal__btn--noComplet" value="Valider" id="pictureSubmit" disabled>
 				</div>	
 			</form>
 		</div>
