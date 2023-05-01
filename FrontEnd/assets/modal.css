@@ -73,7 +73,6 @@
     object-fit: cover;
 }
 
-
 /* FORMULAIRE */
 #myModalGallery  form {
     width: 80%;
@@ -134,20 +133,6 @@
     color: #306685;
     font-weight: 500;
 }
-
-/* #myModalGallery input[type="submit"]{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-    height: 34px;
-	background-color: #A7A7A7;
-	margin : 2em auto ; */
-	/* width: 180px; */
-	/* text-align: center;
-	border-radius: 60px ;
-	cursor: pointer;
-}  */
-
 
 .modal__buttons{
     width: 80%;

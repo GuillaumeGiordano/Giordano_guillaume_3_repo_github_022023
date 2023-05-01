@@ -152,14 +152,6 @@ nav a:hover {
 	object-fit: cover;
 }
 
-
-.gallery figure{
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-s
 /* FORMULAIRE */
 #contact  {
 	width: 50%;
