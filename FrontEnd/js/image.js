@@ -65,10 +65,11 @@ export async function removePicture(e) {
         return;
     };
 
-    console.log("Projet supprimé !");
-
-    pictureToDelete.remove();
-    pictureOnIndex.remove();
+    // Connection OK => Next
+    if (cnx.ok) {
+        pictureToDelete.remove();
+        pictureOnIndex.remove();
+    };
 
 };
 
@@ -107,13 +108,18 @@ export async function addPicture(event) {
         return;
     };
 
-    const resultat = await cnx.json();
-    myProjet.push(resultat);
 
-    backGallery();
+    // Connection OK => Next
+    if (cnx.ok) {
+        const resultat = await cnx.json();
+        myProjet.push(resultat);
 
-    creatWorksElementsFrom(myProjet, ".modal__gallery");
-    addClickListenrerTrash();
+        backGallery();
 
-    renderWorks(myProjet, ".gallery");
+        creatWorksElementsFrom(myProjet, ".modal__gallery");
+        addClickListenrerTrash();
+
+        renderWorks(myProjet, ".gallery");
+    };
+
 };

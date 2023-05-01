@@ -276,7 +276,7 @@ const openPicture = function (e) {
 export function backGallery() {
     page1.style.display = null;
     page2.style.display = "none";
-    initFormPicture();
+    initFormModalPicture();
 };
 
 
