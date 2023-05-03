@@ -2,7 +2,7 @@ import { createElement } from "./fonctions/dom.js";
 import { setModal } from "./modal.js";
 
 // Add mode EDIT after control token
-export async function setAdmin() {
+export function setAdmin() {
 
     // Variables
     const tagLogin = document.querySelector("#nav__login");
@@ -11,11 +11,13 @@ export async function setAdmin() {
     tagLogin.innerText = "logout";
 
     addMenuEdit("body");
+
     addLinkModifier("#introduction figure",
         {
             "href": "#myModalProfil",
             "class": "editLink editLink-profil"
         });
+
     addLinkModifier("#portfolio h2",
         {
             "href": "#myModalGallery",

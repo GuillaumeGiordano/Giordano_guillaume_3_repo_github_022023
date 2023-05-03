@@ -3,6 +3,7 @@ import { renderFilters } from "./filters.js";
 import { setAdmin } from "./admin.js";
 import { setLogin } from "./login.js";
 import { fetchJSON } from "./fonctions/api.js";
+import { addErrorMessage } from "./fonctions/dom.js";
 
 // Variables GLOBAL
 let SESSION = localStorage.key("SESSION");
@@ -26,7 +27,7 @@ if (pageIndex) {
         };
 
     } catch (e) {
-        alert("Veuillez contacter le développeur s'il vous plaît, merci")
+        addErrorMessage("Veuillez contacter le développeur s'il vous plaît, merci", "#portfolio");
         console.log(e);
     };
 };
@@ -39,7 +40,7 @@ if (pageLogin) {
         document.querySelector("#nav__login").setAttribute("style", "font-weight:800;");
         setLogin();
     } catch (e) {
-        alert("Veuillez contacter le développeur s'il vous plaît, merci")
+        addErrorMessage("Veuillez contacter le développeur s'il vous plaît, merci", "#portfolio");
         console.log(e);
     };
 };

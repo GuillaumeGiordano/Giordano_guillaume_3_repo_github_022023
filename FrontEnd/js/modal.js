@@ -1,7 +1,7 @@
 import { fetchJSON } from "./fonctions/api.js";
 import { createElement } from "./fonctions/dom.js";
 import { choosePicture, removePicture, addPicture, ifEmptyInputModalPicture, initFormModalPicture } from "./image.js";
-
+import { choosePictureProfil } from "./profil.js";
 
 // Variables
 let modal = null;
@@ -154,9 +154,9 @@ const openModal = function (e) {
     };
 
     if (modalName === "#myModalProfil") {
-
         console.log("La modale de mon profil ouverte");
-
+        // ADD listener N°10 - "choosePictureProfil"
+        modal.querySelector("#profilChoose").addEventListener("change", choosePictureProfil);
     };
 };
 
@@ -217,9 +217,8 @@ const closeModal = function (e) {
     };
 
     if (modalName === "#myModalProfil") {
-
         console.log("La modale de mon profil fermée");
-
+        modal.querySelector("#profilChoose").removeEventListener("change", choosePictureProfil);
     };
 
     modal = null;
