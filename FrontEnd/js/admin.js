@@ -1,15 +1,14 @@
 import { createElement } from "./fonctions/dom.js";
-import { modalWindow } from "./modal.js";
+import { setModal } from "./modal.js";
 
 // Add mode EDIT after control token
 export async function setAdmin() {
 
     // Variables
-    const tagLogin = document.querySelector("#login");
+    const tagLogin = document.querySelector("#nav__login");
 
     // update link login menu
     tagLogin.innerText = "logout";
-    console.log("Je suis connecté(e)");
 
     addMenuEdit("body");
     addLinkModifier("#introduction figure",
@@ -23,11 +22,9 @@ export async function setAdmin() {
             "class": "editLink editLink-projets"
         });
 
-
-
     tagLogin.addEventListener("click", logout);
 
-    modalWindow();
+    setModal();
 };
 
 
@@ -59,7 +56,7 @@ const addLinkModifier = function (parent, liste = {}) {
         "class": "fa-regular fa-pen-to-square"
     });
     editWorksModifier.prepend(editWorksIcon);
-}
+};
 
 
 /**
@@ -93,4 +90,4 @@ const addMenuEdit = function (parent) {
     },
         "publier les changements");
     editNav.appendChild(editNavButton);
-}
+};

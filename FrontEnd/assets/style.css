@@ -59,6 +59,7 @@ body {
 }
 main{
 	flex: 1;
+	background-color:#FFFEF8;
 }
 
 header {
@@ -144,7 +145,7 @@ nav a:hover {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
-	grid-row-gap: 20px;
+	grid-row-gap: 35px;
 }
 .gallery img {
 	width: 100%;
@@ -153,16 +154,6 @@ nav a:hover {
 }
 
 /* FORMULAIRE */
-#contact  {
-	width: 50%;
-	margin: auto;
-}
-#contact  > * {
-	text-align: center;
-}
-#contact  h2{
-	margin-bottom: 20px;
-}
 form {
 	text-align: left !important;
 	margin-top:30px;
@@ -177,6 +168,7 @@ input, select {
 }
 label {
 	margin: 2em 0 1em 0;
+	font-weight: 700;
 }
 textarea {
 	border: none;
@@ -192,7 +184,22 @@ input[type="submit"]{
 	text-align: center;
 	border-radius: 60px ;
 	cursor: pointer;
+	height: 34px;
 }
+
+
+/* FORMULAIRE CONTACT */
+#contact  {
+	width: 40%;
+	margin: auto;
+}
+#contact  > * {
+	text-align: center;
+}
+#contact  h2{
+	margin-bottom: 20px;
+}
+
 
 /* FORMULAIRE LOGIN */
 #login  {
@@ -225,19 +232,19 @@ footer nav ul {
 
 /* FILTERS */
 .filter {
+	margin: 10px 0 50px 0;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	row-gap: 10px;
-	margin: 10px 0 50px 0;
+	column-gap: 10px;
 }
 
 .filter__item{
 	border: 1px solid #1D6154;
 	color: #1D6154;
 	font-weight: 500;
-	margin: 0 10px;
-	padding: 0 30px;
+	padding: 0 20px;
 	height: 35px;
 	border-radius: 20px;
 	display: flex;
@@ -245,10 +252,12 @@ footer nav ul {
 	justify-content: center;
 	cursor: pointer;
 }
+
 .filter__item--select{
 	background-color:#1D6154 ;
 	color: white;
 }
+
 .filter__item:hover{
 	background-color:#1D6154 ;
 	color: white;

@@ -9,7 +9,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-        margin-top: 70px;
+        margin-top: 80px;
 		margin-bottom: 10px;
 	}
 
@@ -31,19 +31,15 @@
 		justify-self: center;
 
 	}
+
 	.gallery figure {
-		/* grid-template-columns: 1fr ;
-		justify-self: center; */
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 	}
+
 	.gallery img {
-		/* display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center; */
 		width: 90%;
 		margin: auto;
 	}
@@ -57,8 +53,29 @@
 		min-width: 100px;
 
 	}
+
 	#contact  {
 		width: 80%;
 	}
 
+	.editNav__titre{
+		/* border: 1px solid white; */
+
+		margin-top: 10px;
+
+	}
+
+	.modal__gallery{
+
+		grid-template-columns: 1fr 1fr 1fr;
+
+	}
+	.editLink-projets{
+		left: 35%;
+		top: 20px;
+	}
+
+	.js_trashClick{
+		left: 70%;
+	}
 }

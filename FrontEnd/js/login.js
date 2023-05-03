@@ -10,7 +10,6 @@ export function setLogin() {
 
     // Select the form
     const formLogin = document.querySelector("#formLogin");
-
     formLogin.addEventListener("submit", async function (event) {
 
         // stop form method
@@ -47,20 +46,19 @@ export function setLogin() {
         const user = {
             "email": email,
             "password": passWord,
-        }
+        };
 
         // Connect to API
         const cnx = await fetch('http://localhost:5678/api/users/login', {
             method: 'POST',
             headers: {
-                Accept: 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
         });
-        const r = cnx.status;
 
         // Controls connection
+        const r = cnx.status;
         if (r === 401 || r === 404) {
             addErrorMessage("Il y a une erreur sur les identifiants !", "main");
             document.querySelector("#mail").value = "";
@@ -72,7 +70,6 @@ export function setLogin() {
         if (cnx.ok && r === 200) {
             const data = await cnx.json();
             localStorage.setItem("SESSION", data.token);
-            // localStorage.setItem("UserId", data.userId);
             window.location.href = './index.html';
             alert("Bienvenue " + email);
         };

@@ -1,6 +1,6 @@
 import { fetchJSON } from "./fonctions/api.js";
 import { createElement } from "./fonctions/dom.js";
-import { choosPicture, removePicture, addPicture } from "./image.js";
+import { choosePicture, removePicture, addPicture, ifEmptyInputModalPicture, initFormModalPicture } from "./image.js";
 
 
 // Variables
@@ -19,12 +19,9 @@ const categoriesListe = await fetchJSON("http://localhost:5678/api/categories");
 /**
  * MAIN CODE
  */
-export function modalWindow() {
+export function setModal() {
 
-    // Get all the works
     creatWorksElementsFrom(worksListe, ".modal__gallery");
-
-    // Get all the categories
     creatCategoriesElementFrom(categoriesListe);
 
     // Open modal
@@ -48,14 +45,12 @@ export function modalWindow() {
 
 
 /**
- * Add works element after fetch ON MODAL
+ * Add works element for MODAL
  * @param {Array} liste tableau d'objet(s)
  * @param {tagName} parent tagName to the parent's contener
  */
 export function creatWorksElementsFrom(liste, parent) {
-    // Je crée tous les elements suivant le nombre de réponses trouvés
     liste.forEach(element => {
-        // Je crée les balises suivant ma fonction c'est plus facile d'intégrer des para comme des class !
         const figureElement = createElement("figure", {
             "id": element.id
         });
@@ -67,12 +62,8 @@ export function creatWorksElementsFrom(liste, parent) {
             "class": "fa-solid fa-trash-can trash--position",
             "data-id": element.id
         })
-        // const iconArrows = createElement("i", {
-        //     "class": "fa-solid fa-arrows-up-down-left-right arrows--active"
-        // })
         const imgElement = createElement("img", {
             "src": element.imageUrl,
-            // "alt": "image sur : " + element.category.name
             "alt": "image sur : " + element.title
 
         });
@@ -81,23 +72,20 @@ export function creatWorksElementsFrom(liste, parent) {
         },
             "Editer"
         );
-        // Je declare la balise parent Ref!
+        // parent
         const contenerWorks = document.querySelector(parent);
-
         // Je les inbrique et affiche
         contenerWorks.appendChild(figureElement);
         figureElement.appendChild(linkTrash);
         linkTrash.appendChild(iconTrash);
-        // linkTrash.appendChild(iconArrows);
         figureElement.appendChild(imgElement);
         figureElement.appendChild(linkElement);
     });
 };
 
 
-
 /**
- * add categories after fetch to select imput to MODAL
+ * add categories to select's imput for MODAL
  * @param {Array} liste tableau d'objet
  */
 function creatCategoriesElementFrom(liste) {
@@ -119,47 +107,59 @@ function creatCategoriesElementFrom(liste) {
  */
 const openModal = function (e) {
     e.preventDefault();
-    // Select modal with "href"
-    modal = document.querySelector(e.target.getAttribute("href"));
+    // Select modal 
+    const modalName = e.target.getAttribute("href");
+    modal = document.querySelector(modalName);
     // Pages
     page1.style.display = null;
     page2.style.display = "none";
     // List all selectors can be focus
-    canFocus = Array.from(modal.querySelectorAll(listSelectorFocus)); // renvoi normalement un node, Array.from permet de le transformer en tableau !
+    // renvoi normalement un node, Array.from permet de le transformer en tableau !
+    canFocus = Array.from(modal.querySelectorAll(listSelectorFocus));
     previouslyFocusedElement = document.querySelector(":focus");
+
     // show modal selected
     modal.style.display = null;
     canFocus[2].focus();
     modal.removeAttribute("aria-hidden");
     modal.setAttribute("aria-modal", "true");
-    // Close modal "add"
+
+    // ADD listener N°1 "Close modal" 
     modal.addEventListener("click", closeModal);
+    // ADD listener N°2 "Close modal" 
     modal.querySelectorAll(".js-myModal-close").forEach(e => {
-        e.addEventListener("click", closeModal); // modal.querySelector(".js-myModal-close").addEventListener("click", closeModal);
+        e.addEventListener("click", closeModal);
     });
-    // Stop closing onClick on modal "add"
-    modal.querySelector(".js-myModal-stop").addEventListener("click", stopPropagation);
-    // Go modal picture
-    modal.querySelector("#myModalGallery .modal__btn--add").addEventListener("click", openPicture);
-
-    addClickListenrerTrash();
-
-    // Add1 listener Back modal gallery
-    modal.querySelector(".js-myModal-before").addEventListener("click", backGallery);
-
-    // Add2 listener to choose picture
-    modal.querySelector("#pictureChoose").addEventListener("change", choosPicture);
-
-    // Add3 listener to change the button to active after control is not empty imput !
-    const allImputForm = Array.from(modal.querySelectorAll(".js-control"));
-    allImputForm.forEach(input => {
-        input.addEventListener("change", ifEmptyInputModalPicture);
+    // ADD listener N°3 - "stopPropagation"
+    modal.querySelectorAll(".js-myModal-stop").forEach(e => {
+        e.addEventListener("click", stopPropagation);
     });
 
-    // Add4 listener btn AddPicture
-    modal.querySelector("#pictureForm").addEventListener("submit", addPicture);
+    if (modalName === "#myModalGallery") {
+        // ADD listener N°4 - "openPicture"
+        modal.querySelector("#myModalGallery .modal__btn--add").addEventListener("click", openPicture);
+        // ADD listener N°5 - "removePicture"
+        addClickListenrerTrash();
+        // ADD listener N°6 - "backGallery"
+        modal.querySelector(".js-myModal-before").addEventListener("click", backGallery);
+        // ADD listener N°7 - "choosePicture"
+        modal.querySelector("#pictureChoose").addEventListener("change", choosePicture);
+        // ADD listener N°8 - "ifEmptyInputModalPicture"
+        const allImputForm = Array.from(modal.querySelectorAll(".js-control"));
+        allImputForm.forEach(input => {
+            input.addEventListener("change", ifEmptyInputModalPicture);
+        });
+        // ADD listener N°9 - "addPicture"
+        modal.querySelector("#pictureForm").addEventListener("submit", addPicture);
+    };
 
+    if (modalName === "#myModalProfil") {
+
+        console.log("La modale de mon profil ouverte");
+
+    };
 };
+
 
 export function addClickListenrerTrash() {
     // Add listener on link trash
@@ -177,52 +177,52 @@ export function addClickListenrerTrash() {
 const closeModal = function (e) {
     if (modal === null) return;
     if (previouslyFocusedElement !== null) previouslyFocusedElement.focus();
+
     e.preventDefault();
+
+    const modalName = "#" + modal.getAttribute("id");
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
     modal.removeAttribute("aria-modal");
-    // Close modal "Remove"
+
+    // REMOVE listener N°1 "Close modal" 
     modal.removeEventListener("click", closeModal);
+    // REMOVE listener N°2 "Close modal" 
     modal.querySelectorAll(".js-myModal-close").forEach(e => {
-        e.removeEventListener("click", closeModal); // modal.querySelector(".js-myModal-close").removeEventListener("click", closeModal);
+        e.removeEventListener("click", closeModal);
     })
-    // Stop closing onClick on modal "Remove"
+    // REMOVE listener N°3 "stopPropagation" 
     modal.querySelector(".js-myModal-stop").removeEventListener("click", stopPropagation);
-    // Go modal picture
-    modal.querySelector("#myModalGallery .modal__btn--add").removeEventListener("click", openPicture);
 
-    // Remove listener on link trash
-    modal.querySelectorAll(".js_trashClick").forEach(trash => {
-        trash.removeEventListener("click", removePicture);
-    });
+    if (modalName === "#myModalGallery") {
+        // REMOVE listener N°4 "openPicture" 
+        modal.querySelector("#myModalGallery .modal__btn--add").removeEventListener("click", openPicture);
+        // REMOVE listener N°5 "removePicture" 
+        modal.querySelectorAll(".js_trashClick").forEach(trash => {
+            trash.removeEventListener("click", removePicture);
+        });
+        // REMOVE listener N°6 "backGallery" 
+        modal.querySelector(".js-myModal-before").removeEventListener("click", backGallery);
+        // REMOVE listener N°7 "choosePicture" 
+        modal.querySelector("#pictureChoose").addEventListener("change", choosePicture);
+        // REMOVE listener N°8 "ifEmptyInputModalPicture" 
+        const allImputForm = Array.from(modal.querySelectorAll(".js-control"));
+        allImputForm.forEach(input => {
+            input.removeEventListener("change", ifEmptyInputModalPicture);
+        });
+        // REMOVE listener N°9 "addPicture" 
+        modal.querySelector("#pictureForm").removeEventListener("submit", addPicture);
 
-    // Remove1
-    modal.querySelector(".js-myModal-before").removeEventListener("click", backGallery);
-    // Remove2
-    modal.querySelector("#pictureChoose").addEventListener("change", choosPicture);
-    // Remove3 listener to change the button to active after control is not empty imput !
-    const allImputForm = Array.from(modal.querySelectorAll(".js-control"));
-    allImputForm.forEach(input => {
-        input.removeEventListener("change", ifEmptyInputModalPicture);
-    });
-    // Remove4
-    modal.querySelector("#pictureForm").removeEventListener("submit", addPicture);
+        initFormModalPicture();
+    };
 
-    initFormModalPicture();
+    if (modalName === "#myModalProfil") {
+
+        console.log("La modale de mon profil fermée");
+
+    };
 
     modal = null;
-};
-
-/**
- * INIT FORM modal Picture
- */
-const initFormModalPicture = function () {
-    modal.querySelector(".js-picture form").reset();
-    modal.querySelector("#pictureView").src = "./assets/icons/image.png";
-    modal.querySelector("#pictureView").classList.remove("addPicture__logo--full");
-    modal.querySelector(".addPicture__btn").style = "display:null;";
-    modal.querySelector("#pictureSubmit").classList.add("modal__btn--noComplet")
-    modal.querySelector("#pictureSubmit").setAttribute("disabled", "");
 };
 
 
@@ -273,48 +273,13 @@ const openPicture = function (e) {
 /**
  * Back to => edite's gallery
  */
-export function backGallery() {
+export function backGallery(e) {
+    e.preventDefault();
     page1.style.display = null;
     page2.style.display = "none";
     initFormModalPicture();
 };
 
 
-/**
- * use for unlock or lock the button
- * @returns 
- */
-const ifEmptyInputModalPicture = function () {
 
-    const btnAddPicture = modal.querySelector("#pictureSubmit");
-
-    // Variables
-    let filePicture = modal.querySelector("#pictureChoose").files.length;
-    let nameProjet = modal.querySelector("#pictureTitre").value;
-    let valueCategorie = modal.querySelector("#pictureCat").value;
-
-
-    if (filePicture == 0) {
-        console.log("Merci de choisir une photo pour votre nouveau projet, s'il vous plaît");
-        btnAddPicture.classList.add("modal__btn--noComplet")
-        btnAddPicture.setAttribute("disabled", "");
-        return;
-    };
-    if (nameProjet === "") {
-        console.log("Merci de remplir le nom de votre nouveau projet, s'il vous plaît");
-        btnAddPicture.classList.add("modal__btn--noComplet")
-        btnAddPicture.setAttribute("disabled", "");
-        return;
-    };
-    if (valueCategorie === "" || valueCategorie < 1) {
-        console.log("Merci de choisir une catégorie pour votre nouveau projet, s'il vous plaît");
-        btnAddPicture.classList.add("modal__btn--noComplet")
-        btnAddPicture.setAttribute("disabled", "");
-        return;
-    };
-
-    btnAddPicture.classList.remove("modal__btn--noComplet")
-    btnAddPicture.removeAttribute("disabled");
-
-};
 
