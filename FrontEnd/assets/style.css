@@ -56,10 +56,10 @@ body {
 	min-height: 100vh;
 	display: grid;
 	grid-template-rows: auto 1fr auto;
+	background-color:#FFFEF8;
 }
 main{
 	flex: 1;
-	background-color:#FFFEF8;
 }
 
 header {
@@ -224,6 +224,13 @@ input[type="submit"]{
 
 
 /* FOOTER */
+footer {
+	background-color:white;
+	width: 100%;
+	position: relative;
+	left: 0px;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
