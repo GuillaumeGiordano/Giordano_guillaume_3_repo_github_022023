@@ -21,9 +21,10 @@
     background-color: white;
     border-radius: 5px;
     width: 45%;
+    height: 70%;
     min-width: 350px;
     max-width: 630px;
-    max-height: 600px;
+    max-height: 660px;
     padding: 10px;
 }
 
@@ -51,8 +52,8 @@
 }
 
 .modal__gallery{
-    overflow-y:auto ;
-    overflow-x: hidden;
+    /* overflow-y:auto ;
+    overflow-x: hidden; */
     width: 80%;
     margin-top: 20px;
     padding: 0 6px;
@@ -60,7 +61,7 @@
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 6px;
 	grid-row-gap: 6px;
-    max-height: 400px;
+    /* max-height: 400px; */
 }
 
 .modal__gallery img {
@@ -133,9 +134,7 @@
     height: 98%;
 }
 
-.js-picture .modal__buttons{
- width: 100%;
-}
+
 
 .addPicture__btn{
     display: flex;
@@ -156,8 +155,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px 0 20px 0;
+    margin: 20px 0 10px 0;
     border-top: 1px solid #1D6154;
+}
+.js-picture .modal__buttons{
+    width: 100%;
+   }
+.js-profil .modal__buttons{
+    width: 100%;
 }
 
 .modal__btn{

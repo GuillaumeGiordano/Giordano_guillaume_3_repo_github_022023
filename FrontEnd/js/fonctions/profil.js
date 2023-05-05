@@ -1,5 +1,5 @@
 
-import { addErrorMessage, removeErrorMessage } from "./fonctions/dom.js";
+import { addErrorMessage, removeErrorMessage } from "./dom.js";
 import { validFileType } from "./image.js";
 
 

@@ -1,40 +1,40 @@
-import { createElement } from "./fonctions/dom.js";
+import { createElement } from "./dom.js";
 import { setModal } from "./modal.js";
 
-// Add mode EDIT after control token
+
+/**
+ * Main Code
+ */
 export function setAdmin() {
 
-    // Variables
+    // MODIFIER POUR RAJOUTER UNE CLASSE POUR FAIRE CA !!!
     const tagLogin = document.querySelector("#nav__login");
-
-    // update link login menu
     tagLogin.innerText = "logout";
+    tagLogin.addEventListener("click", logout);
 
     addMenuEdit("body");
-
-    addLinkModifier("#introduction figure",
+    addLinkModifier(
+        "#introduction figure",
         {
             "href": "#myModalProfil",
             "class": "editLink editLink-profil"
-        });
-
-    addLinkModifier("#portfolio h2",
+        }
+    );
+    addLinkModifier(
+        "#portfolio h2",
         {
             "href": "#myModalGallery",
             "class": "editLink editLink-projets"
-        });
-
-    tagLogin.addEventListener("click", logout);
-
-    setModal();
+        }
+    );
 };
+
 
 
 /**
  * Event onClick for signOut and go to login.html
  */
-export function logout(e) {
-    e.preventDefault();
+export function logout() {
     localStorage.removeItem("SESSION");
     window.location.href = './index.html';
 };

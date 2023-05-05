@@ -1,4 +1,3 @@
-
 /**
  * Creat new tag on the page
  * @param {String} tagName name of Tag ex: p, a, section, ....

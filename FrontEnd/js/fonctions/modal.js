@@ -1,5 +1,5 @@
-import { fetchJSON } from "./fonctions/api.js";
-import { createElement } from "./fonctions/dom.js";
+import { fetchJSON } from "./api.js";
+import { createElement } from "./dom.js";
 import { choosePicture, removePicture, addPicture, ifEmptyInputModalPicture, initFormModalPicture } from "./image.js";
 import { choosePictureProfil } from "./profil.js";
 
@@ -11,20 +11,20 @@ let previouslyFocusedElement = null;
 const page1 = document.querySelector(".js-gallery");
 const page2 = document.querySelector(".js-picture");
 
-// Cnx to API
-const worksListe = await fetchJSON("http://localhost:5678/api/works");
-const categoriesListe = await fetchJSON("http://localhost:5678/api/categories");
-
-
 /**
  * MAIN CODE
  */
-export function setModal() {
+export async function setModal() {
 
+    // Cnx to API
+    const worksListe = await fetchJSON("http://localhost:5678/api/works");
+    const categoriesListe = await fetchJSON("http://localhost:5678/api/categories");
+
+    // Display Works and categories
     creatWorksElementsFrom(worksListe, ".modal__gallery");
     creatCategoriesElementFrom(categoriesListe);
 
-    // Open modal
+    // ADD listener "Open modal"
     document.querySelectorAll(".editLink").forEach(a => {
         a.addEventListener("click", openModal);
     });
@@ -35,7 +35,7 @@ export function setModal() {
         if (e.key === "Escape" || e.key === "Esc") {
             closeModal(e);
         };
-        // Nav on modal with tab
+        // Navigation on modal with the hey "tab"
         if (e.key === "Tab" && modal !== null) {
             focusInModal(e);
         };
@@ -154,7 +154,6 @@ const openModal = function (e) {
     };
 
     if (modalName === "#myModalProfil") {
-        console.log("La modale de mon profil ouverte");
         // ADD listener N°10 - "choosePictureProfil"
         modal.querySelector("#profilChoose").addEventListener("change", choosePictureProfil);
     };
@@ -177,7 +176,6 @@ export function addClickListenrerTrash() {
 const closeModal = function (e) {
     if (modal === null) return;
     if (previouslyFocusedElement !== null) previouslyFocusedElement.focus();
-
     e.preventDefault();
 
     const modalName = "#" + modal.getAttribute("id");
@@ -217,7 +215,7 @@ const closeModal = function (e) {
     };
 
     if (modalName === "#myModalProfil") {
-        console.log("La modale de mon profil fermée");
+        // REMOVE listener N°10 "choosePictureProfil"
         modal.querySelector("#profilChoose").removeEventListener("change", choosePictureProfil);
     };
 
@@ -272,8 +270,7 @@ const openPicture = function (e) {
 /**
  * Back to => edite's gallery
  */
-export function backGallery(e) {
-    e.preventDefault();
+export function backGallery() {
     page1.style.display = null;
     page2.style.display = "none";
     initFormModalPicture();

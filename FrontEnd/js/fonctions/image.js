@@ -1,7 +1,7 @@
-
 import { backGallery, creatWorksElementsFrom, addClickListenrerTrash } from "./modal.js";
 import { renderWorks } from "./works.js";
-import { addErrorMessage, removeErrorMessage } from "./fonctions/dom.js";
+import { addErrorMessage, removeErrorMessage } from "./dom.js";
+
 
 /**
  * Pick 1 picture to add

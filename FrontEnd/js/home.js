@@ -1,47 +1,30 @@
-import { renderWorks } from "./works.js";
-import { renderFilters } from "./filters.js";
-import { setAdmin } from "./admin.js";
-import { setLogin } from "./login.js";
+import { renderWorks } from "./fonctions/works.js";
+import { renderFilters } from "./fonctions/filters.js";
+import { setAdmin } from "./fonctions/admin.js";
 import { fetchJSON } from "./fonctions/api.js";
 import { addErrorMessage } from "./fonctions/dom.js";
+import { renderNav } from "./fonctions/navigation.js";
+import { setModal } from "./fonctions/modal.js";
 
-// Variables GLOBAL
-let SESSION = localStorage.key("SESSION");
-const pageLogin = document.querySelector("#formLogin");
-const pageIndex = document.querySelector("#portfolio");
+// Variable(s)
+let token = localStorage.key("SESSION");
 const maListeWorks = await fetchJSON("http://localhost:5678/api/works");
 const maListeCategories = await fetchJSON("http://localhost:5678/api/categories");
 
-/**
- * PAGE INDEX
- */
-if (pageIndex) {
-    try {
-        document.querySelector("#nav__index").setAttribute("style", "font-weight:800;");
-        renderWorks(maListeWorks, ".gallery");
+// Main Code
+try {
+    renderNav();
+    renderWorks(maListeWorks, ".gallery");
 
-        if (SESSION === "SESSION") {
-            setAdmin();
-        } else {
-            renderFilters(maListeCategories);
-        };
-
-    } catch (e) {
-        addErrorMessage("Veuillez contacter le développeur s'il vous plaît, merci", "#portfolio");
-        console.log(e);
+    if (token === "SESSION") {
+        setAdmin();
+        setModal();
+    } else {
+        renderFilters(maListeCategories);
     };
-};
 
-/**
- * PAGE LOGIN
- */
-if (pageLogin) {
-    try {
-        document.querySelector("#nav__login").setAttribute("style", "font-weight:800;");
-        setLogin();
-    } catch (e) {
-        addErrorMessage("Veuillez contacter le développeur s'il vous plaît, merci", "#portfolio");
-        console.log(e);
-    };
+} catch (e) {
+    addErrorMessage("Veuillez contacter le développeur s'il vous plaît, merci", "#portfolio");
+    console.log(e);
 };
 
