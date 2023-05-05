@@ -1,41 +1,40 @@
-import { createElement } from "./fonctions/dom.js";
-import { modalWindow } from "./modal.js";
+import { createElement } from "./dom.js";
+import { setModal } from "./modal.js";
 
-// Add mode EDIT after control token
-export async function setAdmin() {
 
-    // Variables
-    const tagLogin = document.querySelector("#login");
+/**
+ * Main Code
+ */
+export function setAdmin() {
 
-    // update link login menu
+    // MODIFIER POUR RAJOUTER UNE CLASSE POUR FAIRE CA !!!
+    const tagLogin = document.querySelector("#nav__login");
     tagLogin.innerText = "logout";
-    console.log("Je suis connecté(e)");
+    tagLogin.addEventListener("click", logout);
 
     addMenuEdit("body");
-    addLinkModifier("#introduction figure",
+    addLinkModifier(
+        "#introduction figure",
         {
             "href": "#myModalProfil",
             "class": "editLink editLink-profil"
-        });
-    addLinkModifier("#portfolio h2",
+        }
+    );
+    addLinkModifier(
+        "#portfolio h2",
         {
             "href": "#myModalGallery",
             "class": "editLink editLink-projets"
-        });
-
-
-
-    tagLogin.addEventListener("click", logout);
-
-    modalWindow();
+        }
+    );
 };
+
 
 
 /**
  * Event onClick for signOut and go to login.html
  */
-export function logout(e) {
-    e.preventDefault();
+export function logout() {
     localStorage.removeItem("SESSION");
     window.location.href = './index.html';
 };
@@ -59,7 +58,7 @@ const addLinkModifier = function (parent, liste = {}) {
         "class": "fa-regular fa-pen-to-square"
     });
     editWorksModifier.prepend(editWorksIcon);
-}
+};
 
 
 /**
@@ -93,4 +92,4 @@ const addMenuEdit = function (parent) {
     },
         "publier les changements");
     editNav.appendChild(editNavButton);
-}
+};

@@ -26,9 +26,9 @@
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul>
-			<li><a href="./index.html">projets</a></li>
-			<li ><a href="#contact">contact</a></li>
-			<li><a href="./login.html" id="login">Login</a></li>
+			<li><a class="nav__li" href="./index.html" id="nav__index">projets</a></li>
+			<li ><a class="nav__li" href="#contact">contact</a></li>
+			<li><a class="nav__li" href="./login.html" id="nav__login">Login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -69,67 +69,96 @@
 	</section>
 
 
-<!-- Modal Portfolio -->
-<aside id="myModalGallery" class="modal" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="modal__tittle" style="display:none;">
-	<!-- Modal content -->
-	<div class="modal-wrapper js-myModal-stop">
+	<!-- Modal Profil-->
+	<aside id="myModalProfil" class="modal" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="modal__tittle" style="display:none;">
+		<!-- Modal content -->
+		<div class="modal-wrapper js-myModal-stop">
 
-		<!-- VISUALISATION PHOTOS -->
-		<div class="js-gallery">
-			<ul class="modal__nav">
-				<li class="nav__item"><a href="#" ></a></li>
-				<li class="nav__item"><a href="#" class="js-myModal-close" ><i class="fa-solid fa-xmark"></i></a></li>
-			</ul>
-			<h3 class="modal__tittle">Galerie photo</h3>
+			<!-- FORM PROFIL -->
+			<div class="js-profil">
+				<ul class="modal__nav">
+					<li class="nav__item"><a href="#" ></a></li>
+					<li class="nav__item"><a href="#" class="js-myModal-close" ><i class="fa-solid fa-xmark"></i></a></li>
+				</ul>
+				<h3 class="modal__tittle">Mon Profil</h3>
+				<form class="addPicture" id="profilForm">
+					<div class="contener-photo">
+						<label for="profilChoose" class="contener__label" >
+							<img src="./assets/icons/image.png" alt="image choisie" class="addPicture__logo addPicture__logo--empty" id="profilView" >
+							<span class="addPicture__btn">+ Ajouter photo</span>
+							<input class="js-control" id="profilChoose" name="profilChoose" type="file" style="display: none;">
+							<p>jpg, png: 4 Mo Max</p>
+						</label>
+					</div>
+					<label for="description">Description</label>
+					<textarea name="description" id="description" cols="30" rows="10"></textarea>
+					<div class="modal__buttons">
+						<input type="submit" name="profilSubmit" class="modal__btn modal__btn--noComplet" value="Valider" id="profilSubmit" disabled>
+					</div>	
+				</form>
+			</div>
 
-			<div class="modal__gallery">
-				<!-- Généré par JS -->
-
-			</div>	
-			<div class="modal__buttons">
-				<button class="modal__btn modal__btn--add">Ajouter une photo</button>
-				<button class="modal__btn modal__btn--delete">Supprimer la galerie</button>
-			</div>	
 		</div>
+	</aside>
+	
 
-		<!-- FORM ADD PICTURE -->
-		<div class="js-picture" style="display:none;">
-			<ul class="modal__nav">
-				<li class="nav__item"><a href="#" class="js-myModal-before"><i class="fa-solid fa-arrow-left"></i></a></li>
-				<li class="nav__item"><a href="#" class="js-myModal-close" ><i class="fa-solid fa-xmark"></i></a></li>
-			</ul>
-			<h3 class="modal__tittle">Ajout photo</h3>
 
-			<form class="addPicture" id="pictureForm">
+	<!-- Modal Portfolio -->
+	<aside id="myModalGallery" class="modal" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="modal__tittle" style="display:none;">
+		<!-- Modal content -->
+		<div class="modal-wrapper js-myModal-stop">
 
-				<div class="contener-photo">
 
-					<label for="pictureChoose" class="contener__label" >
-						<img src="./assets/icons/image.png" alt="image choisie" class="addPicture__logo" id="pictureView" >
-						<span class="addPicture__btn">+ Ajouter photo</span>
-						<input class="js-control" id="pictureChoose" name="image" type="file" style="display: none;">
-						<p>jpg, png: 4 Mo Max</p>
-					</label>
-
-				</div>
-
-				<label for="pictureTitre">Titre</label>
-				<input type="text" name="title" id="pictureTitre" class="js-control" value="">
-
-				<label for="pictureCat">Catégorie</label>
-				<select id="pictureCat" name="category" class="js-control">
-					<!-- En JS -->
-					<option value="0">Faite votre choix.</option>
-				  </select>	
-
-				<div class="modal__buttons">
-					  <input type="submit" name="pictureSubmit" class="modal__btn modal__btn--noComplet" value="Valider" id="pictureSubmit" disabled>
+			<!-- VISUALISATION PHOTOS -->
+			<div class="js-gallery">
+				<ul class="modal__nav">
+					<li class="nav__item"><a href="#" ></a></li>
+					<li class="nav__item"><a href="#" class="js-myModal-close" ><i class="fa-solid fa-xmark"></i></a></li>
+				</ul>
+				<h3 class="modal__tittle">Galerie photo</h3>
+				<div class="modal__gallery">
+					<!-- Généré par JS -->
 				</div>	
-			</form>
-		</div>
+				<div class="modal__buttons">
+					<button class="modal__btn modal__btn--add">Ajouter une photo</button>
+					<button class="modal__btn modal__btn--delete">Supprimer la galerie</button>
+				</div>	
+			</div>
 
-	</div>
-</aside>
+
+			<!-- FORM ADD PICTURE -->
+			<div class="js-picture" style="display:none;">
+				<ul class="modal__nav">
+					<li class="nav__item"><a href="#" class="js-myModal-before"><i class="fa-solid fa-arrow-left"></i></a></li>
+					<li class="nav__item"><a href="#" class="js-myModal-close" ><i class="fa-solid fa-xmark"></i></a></li>
+				</ul>
+				<h3 class="modal__tittle">Ajout photo</h3>
+				<form class="addPicture" id="pictureForm">
+					<div class="contener-photo">
+						<label for="pictureChoose" class="contener__label" >
+							<img src="./assets/icons/image.png" alt="image choisie" class="addPicture__logo addPicture__logo--empty" id="pictureView" >
+							<span class="addPicture__btn">+ Ajouter photo</span>
+							<input class="js-control" id="pictureChoose" name="image" type="file" style="display: none;">
+							<p>jpg, png: 4 Mo Max</p>
+						</label>
+					</div>
+					<label for="pictureTitre">Titre</label>
+					<input type="text" name="title" id="pictureTitre" class="js-control" value="">
+					<label for="pictureCat">Catégorie</label>
+					<select id="pictureCat" name="category" class="js-control">
+						<!-- En JS -->
+						<option value="0">Faite votre choix.</option>
+					</select>	
+					<div class="modal__buttons">
+						<input type="submit" name="pictureSubmit" class="modal__btn modal__btn--noComplet" value="Valider" id="pictureSubmit" disabled>
+					</div>	
+				</form>
+			</div>
+
+
+		</div>
+	</aside>
+
 
 </main>
 
