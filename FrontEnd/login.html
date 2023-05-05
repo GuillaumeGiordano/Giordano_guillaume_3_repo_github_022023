@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="./assets/responsive.css">
 	
 	<!-- Mon JS avec defer pour charger en dernier (type="module" fait la même chose) -->
-	<script src="./js/home.js" type="module" defer></script>
+	<script src="./js/login.js" type="module" defer></script>
 
 </head>
 <body>
@@ -20,9 +20,9 @@
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul>
-			<li><a href="./index.html">projets</a></li>
-			<li ><a href="./index.html#contact">contact</a></li>
-			<li><a href="./login.html" id="login">Login</a></li>
+			<li><a class="nav__li" href="./index.html" id="nav__index">projets</a></li>
+			<li><a class="nav__li" href="./index.html#contact">contact</a></li>
+			<li><a class="nav__li" href="./login.html" id="nav__login">Login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -31,9 +31,9 @@
 	<section id="login">
         <form action="" id="formLogin" >
             <h2 class="login__title">Log in</h2>
-            <label for="mail" >identifiant :</label>
+            <label for="mail" >E-mail</label>
             <input type="text" name="mail" id="mail" >
-            <label for="pass" >Mot de passe :</label>
+            <label for="pass" >Mot de passe</label>
             <input type="password" name="pass" id="pass" >
             <input type="submit" value="Se connecter" >
             <p><a href="#">Mot de passe oublié</a></p>
