@@ -18,11 +18,14 @@
 	width: 100%;
 	}
 
-
 	#introduction {
 		flex-direction: column;
 	}
 
+	#introduction img{
+		width: 100%;
+	}
+	
 	#introduction article {
 		text-align: justify;
 		padding: 10px;

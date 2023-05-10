@@ -12,6 +12,12 @@ export function renderNav() {
         item.addEventListener("click", menuItemBold)
     });
 
+
+    const pageIndex = document.querySelector("#introduction");
+    console.log(pageIndex);
+
+
+
 };
 
 
