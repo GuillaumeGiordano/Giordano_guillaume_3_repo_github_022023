@@ -111,14 +111,17 @@
 
 			<!-- VISUALISATION PHOTOS -->
 			<div class="js-gallery">
-				<ul class="modal__nav">
-					<li class="nav__item"><a href="#" ></a></li>
-					<li class="nav__item"><a href="#" class="js-myModal-close" ><i class="fa-solid fa-xmark"></i></a></li>
-				</ul>
-				<h3 class="modal__tittle">Galerie photo</h3>
-				<div class="modal__gallery">
-					<!-- Généré par JS -->
-				</div>	
+				<div class="modal__main">
+					<ul class="modal__nav">
+						<li class="nav__item"><a href="#" ></a></li>
+						<li class="nav__item"><a href="#" class="js-myModal-close" ><i class="fa-solid fa-xmark"></i></a></li>
+					</ul>				
+					<h3 class="modal__tittle">Galerie photo</h3>
+					<div class="modal__gallery">
+						<!-- Généré par JS -->
+					</div>	
+				</div>
+
 				<div class="modal__buttons">
 					<button class="modal__btn modal__btn--add">Ajouter une photo</button>
 					<button class="modal__btn modal__btn--delete">Supprimer la galerie</button>
@@ -132,6 +135,8 @@
 					<li class="nav__item"><a href="#" class="js-myModal-before"><i class="fa-solid fa-arrow-left"></i></a></li>
 					<li class="nav__item"><a href="#" class="js-myModal-close" ><i class="fa-solid fa-xmark"></i></a></li>
 				</ul>
+
+				
 				<h3 class="modal__tittle">Ajout photo</h3>
 				<form class="addPicture" id="pictureForm">
 					<div class="contener-photo">
@@ -153,6 +158,7 @@
 						<input type="submit" name="pictureSubmit" class="modal__btn modal__btn--noComplet" value="Valider" id="pictureSubmit" disabled>
 					</div>	
 				</form>
+				
 			</div>
 
 
