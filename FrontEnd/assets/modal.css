@@ -17,6 +17,7 @@
 }
 
 .modal-wrapper{
+    
     background-color: white;
     border-radius: 5px;
     width: 45%;
@@ -27,8 +28,7 @@
 }
 
 .js-gallery, .js-picture, .js-profil {
-	border: 1px solid red;
-    height: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,14 +36,10 @@
 }
 
 .modal__main{
-    margin: 0;
-    padding: 0;
-    border: 1px solid red;
-
+    
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
     justify-items: flex-start;
 }
 
@@ -60,17 +56,12 @@
 }
 
 .modal__tittle{
-	border: 1px solid red;
-
     margin-top: 20px;
     font-size: 1.2rem;
 }
 
 .modal__gallery{
-	border: 1px solid red;
-
-    /* overflow-y:auto ;
-    overflow-x: hidden;  */
+    overflow-y:auto ;
     width: 80%;
     margin-top: 20px;
     padding: 0 6px;
@@ -78,7 +69,7 @@
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 6px;
 	grid-row-gap: 6px;
-
+    height: 360px;
 }
 
 .modal__gallery img {
@@ -151,8 +142,6 @@
     height: 98%;
 }
 
-
-
 .addPicture__btn{
     display: flex;
     align-items: center;
@@ -172,7 +161,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px 0 10px 0;
+    margin: 30px 0  10px 0;
     border-top: 1px solid #1D6154;
 }
 .js-picture .modal__buttons{
