@@ -1,91 +1,84 @@
 @media screen and (max-width: 768px) {
+  .editNav {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .editNav{
-        display: flex;
-        flex-direction: column;
-    }
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
 
-	header {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-        margin-top: 80px;
-		margin-bottom: 10px;
-		width: 100%;
-	}
+  main {
+    width: 100%;
+  }
 
-	main{
-	width: 100%;
-	}
+  #introduction {
+    flex-direction: column;
+  }
 
+  #introduction img {
+    width: 100%;
+  }
 
-	#introduction {
-		flex-direction: column;
-	}
+  #introduction article {
+    text-align: justify;
+    padding: 10px;
+  }
 
-	#introduction article {
-		text-align: justify;
-		padding: 10px;
-	}
+  .editLink-projets {
+    margin-left: 20px;
+  }
 
-	.editLink-projets{
-		margin-left: 20px;
-	}
+  .gallery {
+    grid-template-columns: 1fr;
+    justify-self: center;
+  }
 
-	.gallery {
-		grid-template-columns: 1fr ;
-		justify-self: center;
+  .gallery figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-	}
+  .gallery img {
+    width: 90%;
+    margin: auto;
+  }
 
-	.gallery figure {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
+  #login {
+    width: 80%;
+  }
 
-	.gallery img {
-		width: 90%;
-		margin: auto;
-	}
+  .filter__item {
+    flex: 1;
+    min-width: 100px;
+  }
 
-	#login  {
-		width: 80%;
-	}
+  #contact {
+    width: 80%;
+  }
 
-	.filter__item{
-		flex: 1;
-		min-width: 100px;
+  .editNav__titre {
+    /* border: 1px solid white; */
 
-	}
+    margin-top: 10px;
+  }
 
-	#contact  {
-		width: 80%;
-	}
+  .modal__gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .editLink-projets {
+    left: 35%;
+    top: 20px;
+  }
 
-	.editNav__titre{
-		/* border: 1px solid white; */
-
-		margin-top: 10px;
-
-	}
-
-	.modal__gallery{
-
-		grid-template-columns: 1fr 1fr 1fr;
-
-	}
-	.editLink-projets{
-		left: 35%;
-		top: 20px;
-	}
-
-	.js_trashClick{
-		left: 70%;
-	}
-
-
-
-
+  .js_trashClick {
+    left: 70%;
+  }
 }
