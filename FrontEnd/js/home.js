@@ -3,7 +3,7 @@ import { renderFilters } from "./fonctions/filters.js";
 import { setAdmin } from "./fonctions/admin.js";
 import { fetchJSON } from "./fonctions/api.js";
 import { addErrorMessage } from "./fonctions/dom.js";
-import { renderNav } from "./fonctions/navigation.js";
+import { makeLoginBoldOrNot } from "./fonctions/navigation.js";
 import { setModal } from "./fonctions/modal.js";
 
 // Variable(s)
@@ -13,7 +13,7 @@ const maListeCategories = await fetchJSON("http://localhost:5678/api/categories"
 
 // Main Code
 try {
-    renderNav();
+    makeLoginBoldOrNot();
     renderWorks(maListeWorks, ".gallery");
 
     if (token === "SESSION") {

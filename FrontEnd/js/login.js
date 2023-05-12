@@ -1,9 +1,9 @@
 import { addErrorMessage } from "./fonctions/dom.js";
-import { renderNav } from "./fonctions/navigation.js";
+import { makeLoginBoldOrNot } from "./fonctions/navigation.js";
 import { setLogin } from "./fonctions/connexion.js";
 
 try {
-    renderNav();
+    makeLoginBoldOrNot();
     setLogin();
 
 } catch (e) {
