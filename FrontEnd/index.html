@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" >
     <title>Sophie Bluel - Architecte d'intérieur</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="preconnect" href="https://fonts.googleapis.com" >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
       rel="stylesheet"
-    />
-    <meta name="description" content="" />
+    >
+    <meta name="description" content="" >
 
-    <script
-      src="https://kit.fontawesome.com/b87b562c17.js"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <link rel="stylesheet" href="./assets/style.css" />
-    <link rel="stylesheet" href="./assets/modeEdit.css" />
-    <link rel="stylesheet" href="./assets/modal.css" />
-    <link rel="stylesheet" href="./assets/responsive.css" />
+    <script src="https://kit.fontawesome.com/b87b562c17.js" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="./assets/style.css" >
+    <link rel="stylesheet" href="./assets/modeEdit.css" >
+    <link rel="stylesheet" href="./assets/modal.css" >
+    <link rel="stylesheet" href="./assets/responsive.css" >
     <!-- Mon JS avec defer pour charger en dernier (type="module" fait la même chose) -->
     <script src="./js/home.js" type="module"></script>
   </head>
@@ -31,39 +27,34 @@
       <nav>
         <ul>
           <li>
-            <a class="nav__li" href="./index.html#portfolio" id="nav__index">
-              projets
-            </a>
+            <a class="nav__li" href="./index.html#portfolio" id="nav__index"> projets </a>
           </li>
           <li><a class="nav__li" href="./index.html#contact">contact</a></li>
           <li>
             <a class="nav__li" href="./login.html" id="nav__login">Login</a>
           </li>
-          <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
+          <li><img src="./assets/icons/instagram.png" alt="Instagram" ></li>
         </ul>
       </nav>
     </header>
     <main>
       <div id="introduction">
         <figure>
-          <img src="./assets/images/sophie-bluel.png" alt="" />
+          <img src="./assets/images/sophie-bluel.png" alt="" >
         </figure>
         <article>
           <h2>Designer d'espace</h2>
           <p>
-            Je raconte votre histoire, je valorise vos idées. Je vous accompagne
-            de la conception à la livraison finale du chantier.
+            Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale
+            du chantier.
           </p>
           <p>
-            Chaque projet sera étudié en commun, de façon à mettre en valeur les
-            volumes, les matières et les couleurs dans le respect de l’esprit
-            des lieux et le choix adapté des matériaux. Le suivi du chantier
-            sera assuré dans le souci du détail, le respect du planning et du
-            budget.
+            Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs
+            dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré
+            dans le souci du détail, le respect du planning et du budget.
           </p>
           <p>
-            En cas de besoin, une équipe pluridisciplinaire peut-être constituée
-            : architecte DPLG, décorateur(trice)
+            En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)
           </p>
         </article>
       </div>
@@ -83,12 +74,12 @@
         <p>Vous avez un projet ? Discutons-en !</p>
         <form action="#" method="post">
           <label for="name">Nom</label>
-          <input type="text" name="name" id="name" />
+          <input type="text" name="name" id="name" >
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" />
+          <input type="email" name="email" id="email" >
           <label for="message">Message</label>
           <textarea name="message" id="message" cols="30" rows="10"></textarea>
-          <input type="submit" value="Envoyer" />
+          <input type="submit" value="Envoyer" >
         </form>
       </section>
 
@@ -108,9 +99,7 @@
             <ul class="modal__nav">
               <li class="nav__item"><a href="#"></a></li>
               <li class="nav__item">
-                <a href="#" class="js-myModal-close"
-                  ><i class="fa-solid fa-xmark"></i
-                ></a>
+                <a href="#" class="js-myModal-close"><i class="fa-solid fa-xmark"></i></a>
               </li>
             </ul>
             <h3 id="profilModal" class="modal__tittle">Mon Profil</h3>
@@ -122,25 +111,14 @@
                     alt="image choisie"
                     class="addPicture__logo addPicture__logo--empty"
                     id="profilView"
-                  />
+                  >
                   <span class="addPicture__btn">+ Ajouter photo</span>
-                  <input
-                    class="js-control"
-                    id="profilChoose"
-                    name="profilChoose"
-                    type="file"
-                    style="display: none"
-                  />
+                  <input class="js-control" id="profilChoose" name="profilChoose" type="file" style="display: none" >
                 </label>
                 <p>jpg, png: 4 Mo Max</p>
               </div>
               <label for="description">Description</label>
-              <textarea
-                name="description"
-                id="description"
-                cols="30"
-                rows="10"
-              ></textarea>
+              <textarea name="description" id="description" cols="30" rows="10"></textarea>
               <div class="modal__buttons">
                 <input
                   type="submit"
@@ -149,7 +127,7 @@
                   value="Valider"
                   id="profilSubmit"
                   disabled
-                />
+                >
               </div>
             </form>
           </div>
@@ -173,9 +151,7 @@
               <ul class="modal__nav">
                 <li class="nav__item"><a href="#"></a></li>
                 <li class="nav__item">
-                  <a href="#" class="js-myModal-close"
-                    ><i class="fa-solid fa-xmark"></i
-                  ></a>
+                  <a href="#" class="js-myModal-close"><i class="fa-solid fa-xmark"></i></a>
                 </li>
               </ul>
               <h3 id="galleryModal" class="modal__tittle">Galerie photo</h3>
@@ -185,12 +161,8 @@
             </div>
 
             <div class="modal__buttons">
-              <button class="modal__btn modal__btn--add">
-                Ajouter une photo
-              </button>
-              <button class="modal__btn modal__btn--delete">
-                Supprimer la galerie
-              </button>
+              <button class="modal__btn modal__btn--add">Ajouter une photo</button>
+              <button class="modal__btn modal__btn--delete">Supprimer la galerie</button>
             </div>
           </div>
 
@@ -218,26 +190,14 @@
                     alt="image choisie"
                     class="addPicture__logo addPicture__logo--empty"
                     id="pictureView"
-                  />
+                  >
                   <span class="addPicture__btn">+ Ajouter photo</span>
-                  <input
-                    class="js-control"
-                    id="pictureChoose"
-                    name="image"
-                    type="file"
-                    style="display: none"
-                  />
+                  <input class="js-control" id="pictureChoose" name="image" type="file" style="display: none" >
                 </label>
                 <p>jpg, png: 4 Mo Max</p>
               </div>
               <label for="pictureTitre">Titre</label>
-              <input
-                type="text"
-                name="title"
-                id="pictureTitre"
-                class="js-control"
-                value=""
-              />
+              <input type="text" name="title" id="pictureTitre" class="js-control" value="" >
               <label for="pictureCat">Catégorie</label>
               <select id="pictureCat" name="category" class="js-control">
                 <!-- En JS -->
@@ -251,7 +211,7 @@
                   value="Valider"
                   id="pictureSubmit"
                   disabled
-                />
+                >
               </div>
             </form>
           </div>
